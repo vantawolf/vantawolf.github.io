@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -13,14 +13,16 @@ body {
     text-align: center;
 }
 
-/* HERO */
+/* HERO SECTION */
 header {
     padding: 60px 20px;
 }
 header .logo {
     width: 200px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
+    display: block;
     animation: pulseGlow 2s infinite alternate;
+    border-radius: 16px; /* optional soft corners */
 }
 @keyframes pulseGlow {
     0% { filter: drop-shadow(0 0 10px #8a2be2); }
@@ -75,13 +77,14 @@ footer {
 </head>
 <body>
 
+<!-- HERO -->
 <header>
-<!-- Logo added here -->
 <img src="images/vantawolf-logo.png" alt="VantaWolf Logo" class="logo">
 <h1>VantaWolf</h1>
 <p>The cleanest meme token launch on Solana.</p>
 </header>
 
+<!-- SECTIONS -->
 <div class="section">
 <div class="card">
 <h2>About</h2>
@@ -100,6 +103,7 @@ footer {
 </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
 © 2026 VantaWolf. All rights reserved.
 </footer>
