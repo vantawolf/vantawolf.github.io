@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +12,22 @@ body {
     color: white;
     text-align: center;
 }
+
+/* HERO */
 header {
     padding: 60px 20px;
 }
+header .logo {
+    width: 200px;
+    margin-bottom: 20px;
+    animation: pulseGlow 2s infinite alternate;
+}
+@keyframes pulseGlow {
+    0% { filter: drop-shadow(0 0 10px #8a2be2); }
+    50% { filter: drop-shadow(0 0 30px #00ffff); }
+    100% { filter: drop-shadow(0 0 15px #ff00ff); }
+}
+
 h1 {
     font-size: 48px;
     margin-bottom: 10px;
@@ -24,6 +36,8 @@ p {
     color: #b3b3b3;
     font-size: 18px;
 }
+
+/* SECTIONS */
 .section {
     padding: 60px 20px;
 }
@@ -44,42 +58,13 @@ p {
     color: black;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
+.button:hover {
+    background: #ff00ff;
+    color: #000;
+}
+
+/* FOOTER */
 footer {
-    padding: 40px 20px;
-    font-size: 14px;
-    color: #777;
-}
-</style>
-</head>
-<body>
-
-<header>
-<h1>VantaWolf</h1>
-<p>The cleanest meme token launch on Solana.</p>
-</header>
-
-<div class="section">
-<div class="card">
-<h2>About</h2>
-<p>VantaWolf is a community-driven meme project focused on transparency, trust, and long-term growth. Built for holders, powered by community.</p>
-</div>
-
-<div class="card">
-<h2>Token Status</h2>
-<p>Liquidity pool launch in progress. Security upgrades underway. Preparing for public trading.</p>
-</div>
-
-<div class="card">
-<h2>Join Community</h2>
-<p>Follow updates and announcements.</p>
-<a class="button" href="https://x.com/VantaWolf2026" target="_blank">Follow on X</a>
-</div>
-</div>
-
-<footer>
-© 2026 VantaWolf. All rights reserved.
-</footer>
-
-</body>
-</html>
+    padding: 40
