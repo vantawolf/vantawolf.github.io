@@ -85,6 +85,10 @@ footer {
 <p>The cleanest meme token launch on Solana.</p>
 </header>
 
+<p style="margin-top:20px; font-size:16px; color:#ccc;">
+Website visitors: <span id="view-counter">Loading...</span>
+</p>
+    
 <!-- SECTIONS -->
 <div class="section">
 <div class="card">
@@ -147,5 +151,13 @@ F6CruxPQNZMuTVe8kALHWNWjqP2mpm2Hu48pYXPy8ATb</p>
 © 2026 VantaWolf. All rights reserved.
 </footer>
 
+<script async src="https://api.countapi.xyz/hit/vantawolf.io/visits?callback=websiteVisits"></script>
+
+<script>
+function websiteVisits(response) {
+  document.getElementById('view-counter').innerText = response.value;
+}
+</script>
+    
 </body>
 </html>
