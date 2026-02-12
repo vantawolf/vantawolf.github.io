@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VantaWolf</title>
+
 <style>
 body {
     margin: 0;
@@ -76,6 +77,7 @@ footer {
 }
 </style>
 </head>
+
 <body>
 
 <!-- HERO -->
@@ -84,15 +86,12 @@ footer {
 <h1>VantaWolf</h1>
 <p>The cleanest meme token launch on Solana.</p>
 
-<!-- VISITOR COUNTER -->
-<p style="margin-top:20px; font-size:16px; color:#ccc;">
-Website visitors: <span id="view-counter">Loading...</span>
-</p>
-
+<p>Website visitors: <strong><span id="view-counter">Loading...</span></strong></p>
 </header>
 
 <!-- SECTIONS -->
 <div class="section">
+
 <div class="card">
 <h2>About</h2>
 <p>VantaWolf is a community-driven meme project focused on transparency, trust, and long-term growth. Built for holders, powered by community.</p>
@@ -110,14 +109,13 @@ Airdrops — 10%<br>
 Marketing — 10%<br>
 Team — 5%
 </p>
-</div>
 
 <a href="https://solscan.io/token/JB6BLqZYCh531qV1ey4vXddC5wg5pwCBy48vkktiyR3L" 
    target="_blank" 
    class="button">
    Verify on Solscan
 </a>
-    
+
 <div class="card">
 <h2>Wallet Transparency</h2>
 
@@ -135,7 +133,7 @@ F6CruxPQNZMuTVe8kALHWNWjqP2mpm2Hu48pYXPy8ATb</p>
 
 <p>All allocations follow the VantaWolf tokenomics plan. Liquidity launch coming next.</p>
 </div>
-    
+
 <div class="card">
 <h2>Token Status</h2>
 <p>Liquidity pool launch in progress. Security upgrades underway. Preparing for public trading.</p>
@@ -146,6 +144,7 @@ F6CruxPQNZMuTVe8kALHWNWjqP2mpm2Hu48pYXPy8ATb</p>
 <p>Follow updates and announcements.</p>
 <a class="button" href="https://x.com/VantaWolf2026" target="_blank">Follow on X</a>
 </div>
+
 </div>
 
 <!-- FOOTER -->
@@ -154,11 +153,15 @@ F6CruxPQNZMuTVe8kALHWNWjqP2mpm2Hu48pYXPy8ATb</p>
 </footer>
 
 <!-- VISITOR COUNTER SCRIPT -->
-<script async src="https://api.countapi.xyz/hit/vantawolf-github/visits?callback=websiteVisits"></script>
 <script>
-function websiteVisits(response) {
-  document.getElementById('view-counter').innerText = response.value;
-}
+fetch('https://api.countapi.xyz/hit/vantawolf-github/visits')
+  .then(res => res.json())
+  .then(res => {
+    document.getElementById('view-counter').innerText = res.value;
+  })
+  .catch(() => {
+    document.getElementById('view-counter').innerText = "1";
+  });
 </script>
 
 </body>
