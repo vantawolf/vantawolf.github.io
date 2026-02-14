@@ -86,7 +86,7 @@ footer {
 <h1>VantaWolf</h1>
 <p>The cleanest meme token launch on Solana.</p>
 
-<p>Website visitors: <strong><span id="view-counter">Loading...</span></strong></p>
+<p>Total visitors: <strong><span id="view-counter">Loading...</span></strong></p>
 </header>
 
 <!-- SECTIONS -->
@@ -152,16 +152,18 @@ F6CruxPQNZMuTVe8kALHWNWjqP2mpm2Hu48pYXPy8ATb</p>
 © 2026 VantaWolf. All rights reserved.
 </footer>
 
-<!-- VISITOR COUNTER SCRIPT -->
+<!-- TOTAL VISITOR COUNTER SCRIPT -->
 <script>
-fetch('https://api.countapi.xyz/hit/vantawolf-github/visits')
-  .then(res => res.json())
-  .then(res => {
-    document.getElementById('view-counter').innerText = res.value;
-  })
-  .catch(() => {
-    document.getElementById('view-counter').innerText = "1";
-  });
+document.addEventListener("DOMContentLoaded", function () {
+  fetch('https://api.countapi.xyz/hit/vantawolf.github.io/total-visits')
+    .then(res => res.json())
+    .then(res => {
+      document.getElementById('view-counter').innerText = res.value;
+    })
+    .catch(() => {
+      document.getElementById('view-counter').innerText = "—";
+    });
+});
 </script>
 
 </body>
