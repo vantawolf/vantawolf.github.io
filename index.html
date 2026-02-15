@@ -17,11 +17,11 @@ body {
 
 /* HERO SECTION */
 header {
-    padding: 60px 20px;
+    padding: 30px 20px;
 }
 header .logo {
     width: 200px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 15px auto;
     display: block;
     animation: pulseGlow 2s infinite alternate;
     border-radius: 16px;
@@ -32,46 +32,85 @@ header .logo {
     100% { filter: drop-shadow(0 0 15px #ff00ff); }
 }
 
+h1, h2, h3, p, ul {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    margin: 5px 0;
+    padding: 0;
+}
+
+ul {
+    margin-left: 30px;
+    padding-left: 0;
+}
+
 h1 {
     font-size: 48px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 p {
     color: #b3b3b3;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* SECTIONS */
 .section {
-    padding: 60px 20px;
+    padding: 30px 20px;
 }
 .card {
-    background: #12121a;
-    margin: 20px auto;
-    padding: 30px;
+    background: rgba(18,18,26,0.85);
+    margin: 15px auto;
+    padding: 20px;
     max-width: 600px;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
 }
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+}
+
+/* GIVEAWAY CARD SPECIAL STYLE */
+.card.giveaway {
+    border: 3px solid;
+    border-image: linear-gradient(135deg, #ff00ff, #00ffff) 1;
+    box-shadow: 0 0 25px rgba(255,0,255,0.3), 0 0 25px rgba(0,255,255,0.3);
+    background: rgba(18,18,26,0.95);
+}
+
+/* Sparkle container */
+.card.giveaway .sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* BUTTONS */
 .button {
     display: inline-block;
-    margin-top: 20px;
-    padding: 14px 28px;
+    margin-top: 15px;
+    padding: 12px 24px;
     border-radius: 12px;
-    background: white;
-    color: black;
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+    color: #000;
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
 }
 .button:hover {
-    background: #ff00ff;
+    background: linear-gradient(135deg, #00ffff, #ff00ff);
     color: #000;
 }
 
 /* FOOTER */
 footer {
-    padding: 40px 20px;
+    padding: 30px 20px;
     font-size: 14px;
     color: #777;
 }
@@ -93,12 +132,12 @@ footer {
 <div class="section">
 
 <!-- 🎁 GIVEAWAY SECTION -->
-<div class="card">
+<div class="card giveaway">
   <h2>🎁 VantaWolf Giveaway 🎁</h2>
   <p>25 people will receive <strong>25,000 VWF</strong> each</p>
 
   <h3>How to participate:</h3>
-  <ul style="text-align:left; list-style:disc; margin-left:40px;">
+  <ul>
     <li>Follow</li>
     <li>Like & repost</li>
     <li>Drop your Solana wallet address in the X comment</li>
@@ -106,10 +145,16 @@ footer {
 
   <p>⏳ Giveaway ends / Distribution starts in: <strong><span id="countdown">Loading...</span></strong></p>
 
-  <a href="https://x.com/i/status/2022999781287879043" target="_blank"
-     style="display:inline-block; padding:14px 28px; margin-top:20px; border-radius:12px; background:#ff00ff; color:#fff; font-weight:bold; text-decoration:none;">
+  <a href="https://x.com/i/status/2022999781287879043" target="_blank" class="button">
     Go to Giveaway on X
   </a>
+
+  <!-- sparkles -->
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
 </div>
 
 <div class="card">
@@ -121,7 +166,7 @@ footer {
 
 <p>Official VantaWolf token allocation:</p>
 
-<img src="images/vantawolf_token_allocation_updated.png" alt="VantaWolf Token Distribution" style="width:50%; max-width:500px; border-radius:12px; margin-top:20px;">
+<img src="images/vantawolf_token_allocation_updated.png" alt="VantaWolf Token Distribution" style="width:50%; max-width:500px; border-radius:12px; margin-top:10px;">
 
 <p>
 Liquidity Pool — 75%<br>
@@ -130,9 +175,7 @@ Marketing — 10%<br>
 Team — 5%
 </p>
 
-<a href="https://solscan.io/token/JB6BLqZYCh531qV1ey4vXddC5wg5pwCBy48vkktiyR3L" 
-   target="_blank" 
-   class="button">
+<a href="https://solscan.io/token/JB6BLqZYCh531qV1ey4vXddC5wg5pwCBy48vkktiyR3L" target="_blank" class="button">
    Verify on Solscan
 </a>
 
@@ -172,7 +215,7 @@ F6CruxPQNZMuTVe8kALHWNWjqP2mpm2Hu48pYXPy8ATb</p>
 © 2026 VantaWolf. All rights reserved.
 </footer>
 
-<!-- VISITOR COUNTER -->
+<!-- VISITOR COUNTER SCRIPT -->
 <script>
 fetch('https://api.countapi.xyz/hit/vantawolf-github/visits')
   .then(res => res.json())
@@ -210,6 +253,24 @@ function startCountdown() {
 }
 
 document.addEventListener("DOMContentLoaded", startCountdown);
+</script>
+
+<!-- RANDOM TWINKLE SCRIPT -->
+<script>
+function twinkle() {
+    const sparks = document.querySelectorAll('.card.giveaway .sparkle');
+    sparks.forEach(s => {
+        const x = Math.random() * 100; 
+        const y = Math.random() * 100;
+        s.style.left = x + '%';
+        s.style.top = y + '%';
+        s.style.opacity = 1;
+        s.style.transition = 'opacity 0.5s ease-out';
+        setTimeout(() => s.style.opacity = 0, 500 + Math.random()*1000);
+    });
+}
+// Twinkle every 1.5s
+setInterval(twinkle, 1500);
 </script>
 
 </body>
