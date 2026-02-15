@@ -92,6 +92,36 @@ footer {
 <!-- SECTIONS -->
 <div class="section">
 
+<!-- 🎁 GIVEAWAY SECTION (ADDED) -->
+<div class="card">
+  <h2>🎁 VantaWolf Giveaway 🎁</h2>
+  <p>25 people will receive <strong>25,000 VWF</strong> each<br>
+     + 3 lucky winners will receive <strong>100,000 VWF</strong></p>
+
+  <h3>How to participate:</h3>
+  <ul style="text-align:left; list-style:disc; margin-left:40px;">
+    <li>Follow</li>
+    <li>Like & repost</li>
+    <li>Drop your Solana wallet address</li>
+  </ul>
+
+  <p>⏳ Giveaway ends / Distribution starts in: <strong><span id="countdown">Loading...</span></strong></p>
+
+  <label for="wallet" style="display:block; margin-top:20px; margin-bottom:5px;">Your Solana Wallet:</label>
+  <input type="text" id="wallet" placeholder="Paste your wallet address"
+         style="width:100%; padding:10px; border-radius:8px; border:none; font-size:16px;">
+
+  <button onclick="copyWallet()"
+          style="display:inline-block; padding:12px 24px; margin-top:10px; border-radius:12px; background:#00ffff; color:#000; font-weight:bold; border:none; cursor:pointer;">
+    Copy Wallet
+  </button>
+
+  <a href="https://x.com/i/status/2022999781287879043" target="_blank"
+     style="display:inline-block; padding:14px 28px; margin-top:20px; border-radius:12px; background:#ff00ff; color:#fff; font-weight:bold; text-decoration:none;">
+    Go to Giveaway on X
+  </a>
+</div>
+
 <div class="card">
 <h2>About</h2>
 <p>VantaWolf is a community-driven meme project focused on transparency, trust, and long-term growth. Built for holders, powered by community.</p>
@@ -152,7 +182,7 @@ F6CruxPQNZMuTVe8kALHWNWjqP2mpm2Hu48pYXPy8ATb</p>
 © 2026 VantaWolf. All rights reserved.
 </footer>
 
-<!-- VISITOR COUNTER SCRIPT -->
+<!-- VISITOR COUNTER -->
 <script>
 fetch('https://api.countapi.xyz/hit/vantawolf-github/visits')
   .then(res => res.json())
@@ -162,6 +192,41 @@ fetch('https://api.countapi.xyz/hit/vantawolf-github/visits')
   .catch(() => {
     document.getElementById('view-counter').innerText = "1";
   });
+</script>
+
+<!-- GIVEAWAY SCRIPT -->
+<script>
+function copyWallet() {
+    const walletInput = document.getElementById("wallet");
+    walletInput.select();
+    document.execCommand("copy");
+    alert("Wallet copied! Paste it in your X comment.");
+}
+
+function startCountdown() {
+    const countDownDate = new Date("March 21, 2026 12:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    const interval = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        if (distance < 0) {
+            clearInterval(interval);
+            countdownEl.innerHTML = "Giveaway ended! Distribution is live!";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownEl.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+    }, 1000);
+}
+
+document.addEventListener("DOMContentLoaded", startCountdown);
 </script>
 
 </body>
