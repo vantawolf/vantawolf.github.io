@@ -13,15 +13,19 @@ body {
     background-size: cover;
     color: white;
     text-align: center;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* HERO SECTION */
 header {
-    padding: 30px 20px;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 2;
 }
 header .logo {
     width: 200px;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 20px auto;
     display: block;
     animation: pulseGlow 2s infinite alternate;
     border-radius: 16px;
@@ -32,92 +36,70 @@ header .logo {
     100% { filter: drop-shadow(0 0 15px #ff00ff); }
 }
 
-h1, h2, h3, p, ul {
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    margin: 5px 0;
-    padding: 0;
-}
-
-ul {
-    margin-left: 30px;
-    padding-left: 0;
-}
-
 h1 {
     font-size: 48px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 p {
     color: #b3b3b3;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* SECTIONS */
 .section {
-    padding: 30px 20px;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 2;
 }
 .card {
-    background: rgba(18,18,26,0.85);
-    margin: 15px auto;
-    padding: 20px;
+    background: rgba(18,18,26,0.9);
+    margin: 20px auto;
+    padding: 30px;
     max-width: 600px;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    transition: 0.3s;
-    position: relative;
-    overflow: hidden;
 }
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.5);
-}
-
-/* GIVEAWAY CARD SPECIAL STYLE */
-.card.giveaway {
-    border: 3px solid;
-    border-image: linear-gradient(135deg, #ff00ff, #00ffff) 1;
-    box-shadow: 0 0 25px rgba(255,0,255,0.3), 0 0 25px rgba(0,255,255,0.3);
-    background: rgba(18,18,26,0.95);
-}
-
-/* Sparkle container */
-.card.giveaway .sparkle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* BUTTONS */
 .button {
     display: inline-block;
-    margin-top: 15px;
-    padding: 12px 24px;
+    margin-top: 20px;
+    padding: 14px 28px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #ff00ff, #00ffff);
-    color: #000;
+    background: white;
+    color: black;
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
 }
 .button:hover {
-    background: linear-gradient(135deg, #00ffff, #ff00ff);
+    background: #ff00ff;
     color: #000;
 }
 
 /* FOOTER */
 footer {
-    padding: 30px 20px;
+    padding: 40px 20px;
     font-size: 14px;
     color: #777;
+    position: relative;
+    z-index: 2;
+}
+
+/* PARTICLE CANVAS */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 </style>
 </head>
 
 <body>
+
+<!-- PARTICLE BACKGROUND -->
+<canvas id="particles"></canvas>
 
 <!-- HERO -->
 <header>
@@ -132,12 +114,12 @@ footer {
 <div class="section">
 
 <!-- 🎁 GIVEAWAY SECTION -->
-<div class="card giveaway">
+<div class="card">
   <h2>🎁 VantaWolf Giveaway 🎁</h2>
   <p>25 people will receive <strong>25,000 VWF</strong> each</p>
 
   <h3>How to participate:</h3>
-  <ul>
+  <ul style="text-align:left; list-style:disc; margin-left:40px;">
     <li>Follow</li>
     <li>Like & repost</li>
     <li>Drop your Solana wallet address in the X comment</li>
@@ -145,16 +127,10 @@ footer {
 
   <p>⏳ Giveaway ends / Distribution starts in: <strong><span id="countdown">Loading...</span></strong></p>
 
-  <a href="https://x.com/i/status/2022999781287879043" target="_blank" class="button">
+  <a href="https://x.com/i/status/2022999781287879043" target="_blank"
+     style="display:inline-block; padding:14px 28px; margin-top:20px; border-radius:12px; background:#ff00ff; color:#fff; font-weight:bold; text-decoration:none;">
     Go to Giveaway on X
   </a>
-
-  <!-- sparkles -->
-  <div class="sparkle"></div>
-  <div class="sparkle"></div>
-  <div class="sparkle"></div>
-  <div class="sparkle"></div>
-  <div class="sparkle"></div>
 </div>
 
 <div class="card">
@@ -166,7 +142,7 @@ footer {
 
 <p>Official VantaWolf token allocation:</p>
 
-<img src="images/vantawolf_token_allocation_updated.png" alt="VantaWolf Token Distribution" style="width:50%; max-width:500px; border-radius:12px; margin-top:10px;">
+<img src="images/vantawolf_token_allocation_updated.png" alt="VantaWolf Token Distribution" style="width:50%; max-width:500px; border-radius:12px; margin-top:20px;">
 
 <p>
 Liquidity Pool — 75%<br>
@@ -175,7 +151,9 @@ Marketing — 10%<br>
 Team — 5%
 </p>
 
-<a href="https://solscan.io/token/JB6BLqZYCh531qV1ey4vXddC5wg5pwCBy48vkktiyR3L" target="_blank" class="button">
+<a href="https://solscan.io/token/JB6BLqZYCh531qV1ey4vXddC5wg5pwCBy48vkktiyR3L" 
+   target="_blank" 
+   class="button">
    Verify on Solscan
 </a>
 
@@ -215,7 +193,7 @@ F6CruxPQNZMuTVe8kALHWNWjqP2mpm2Hu48pYXPy8ATb</p>
 © 2026 VantaWolf. All rights reserved.
 </footer>
 
-<!-- VISITOR COUNTER SCRIPT -->
+<!-- VISITOR COUNTER -->
 <script>
 fetch('https://api.countapi.xyz/hit/vantawolf-github/visits')
   .then(res => res.json())
@@ -255,22 +233,78 @@ function startCountdown() {
 document.addEventListener("DOMContentLoaded", startCountdown);
 </script>
 
-<!-- RANDOM TWINKLE SCRIPT -->
+<!-- PARTICLE BACKGROUND SCRIPT -->
 <script>
-function twinkle() {
-    const sparks = document.querySelectorAll('.card.giveaway .sparkle');
-    sparks.forEach(s => {
-        const x = Math.random() * 100; 
-        const y = Math.random() * 100;
-        s.style.left = x + '%';
-        s.style.top = y + '%';
-        s.style.opacity = 1;
-        s.style.transition = 'opacity 0.5s ease-out';
-        setTimeout(() => s.style.opacity = 0, 500 + Math.random()*1000);
-    });
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particlesArray = [];
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Color palette matching logo glow
+const colors = [
+    { r: 138, g: 43, b: 226 },   // purple
+    { r: 0, g: 255, b: 255 },    // cyan
+    { r: 255, g: 0, b: 255 }     // magenta
+];
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.alpha = Math.random() * 0.5 + 0.3;
+        this.alphaDirection = Math.random() < 0.5 ? 1 : -1;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.alpha += 0.005 * this.alphaDirection;
+        if(this.alpha >= 0.8) this.alphaDirection = -1;
+        if(this.alpha <= 0.2) this.alphaDirection = 1;
+        this.edges();
+    }
+
+    draw() {
+        ctx.fillStyle = `rgba(${this.color.r},${this.color.g},${this.color.b},${this.alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    edges() {
+        if(this.x < 0) this.x = canvas.width;
+        if(this.x > canvas.width) this.x = 0;
+        if(this.y < 0) this.y = canvas.height;
+        if(this.y > canvas.height) this.y = 0;
+    }
 }
-// Twinkle every 1.5s
-setInterval(twinkle, 1500);
+
+function initParticles() {
+    particlesArray = [];
+    for(let i = 0; i < 120; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animateParticles);
+}
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initParticles();
+});
+
+initParticles();
+animateParticles();
 </script>
 
 </body>
