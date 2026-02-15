@@ -13,19 +13,15 @@ body {
     background-size: cover;
     color: white;
     text-align: center;
-    overflow-x: hidden;
-    position: relative;
 }
 
 /* HERO SECTION */
 header {
-    padding: 60px 20px 30px 20px; /* reduced bottom padding */
-    position: relative;
-    z-index: 2;
+    padding: 40px 20px;
 }
 header .logo {
     width: 200px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 15px auto;
     display: block;
     animation: pulseGlow 2s infinite alternate;
     border-radius: 16px;
@@ -37,76 +33,68 @@ header .logo {
 }
 
 h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
+    font-size: 42px;
+    margin-bottom: 8px;
 }
 p {
     color: #b3b3b3;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 /* SECTIONS */
 .section {
-    padding: 40px 20px; /* reduced padding overall */
-    position: relative;
-    z-index: 2;
+    padding: 30px 20px;
 }
 .card {
-    background: rgba(18,18,26,0.9);
-    margin: 15px auto; /* reduced margin from 20px */
-    padding: 30px;
+    background: #12121a;
+    margin: 15px auto;
+    padding: 25px;
     max-width: 600px;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 0 30px rgba(138,43,226,0.8), 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.3s;
 }
-.button {
+.card:hover {
+    box-shadow: 0 0 50px rgba(138,43,226,1), 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* BUTTONS WITH GLOW */
+.button, .glow-button {
     display: inline-block;
-    margin-top: 20px;
-    padding: 14px 28px;
+    margin-top: 15px;
+    padding: 12px 28px;
     border-radius: 12px;
     background: white;
     color: black;
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
+    position: relative;
     transition: 0.3s;
+    box-shadow: 0 0 10px rgba(138,43,226,0.7), 0 0 20px rgba(0,255,255,0.6);
 }
-.button:hover {
+.button:hover, .glow-button:hover {
     background: #ff00ff;
-    color: #000;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(138,43,226,1), 0 0 40px rgba(0,255,255,0.9);
 }
 
 /* FOOTER */
 footer {
-    padding: 40px 20px;
+    padding: 30px 20px;
     font-size: 14px;
     color: #777;
-    position: relative;
-    z-index: 2;
-}
-
-/* PARTICLE CANVAS */
-#particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PARTICLE BACKGROUND -->
-<canvas id="particles"></canvas>
-
 <!-- HERO -->
 <header>
 <img src="images/vantawolf-logo.png" alt="VantaWolf Logo" class="logo">
 <h1>VantaWolf</h1>
 <p>The cleanest meme token launch on Solana.</p>
-
 <p>Website visitors: <strong><span id="view-counter">Loading...</span></strong></p>
 </header>
 
@@ -127,39 +115,38 @@ footer {
 
   <p>⏳ Giveaway ends / Distribution starts in: <strong><span id="countdown">Loading...</span></strong></p>
 
-  <a href="https://x.com/i/status/2022999781287879043" target="_blank"
-     style="display:inline-block; padding:14px 28px; margin-top:20px; border-radius:12px; background:#ff00ff; color:#fff; font-weight:bold; text-decoration:none;">
+  <a href="https://x.com/i/status/2022999781287879043" target="_blank" class="glow-button">
     Go to Giveaway on X
   </a>
 </div>
 
+<!-- ABOUT SECTION -->
 <div class="card">
 <h2>About</h2>
 <p>VantaWolf is a community-driven meme project focused on transparency, trust, and long-term growth. Built for holders, powered by community.</p>
 </div>
 
+<!-- TOKEN DISTRIBUTION -->
+<div class="card">
 <h2>Token Distribution</h2>
-
 <p>Official VantaWolf token allocation:</p>
-
-<img src="images/vantawolf_token_allocation_updated.png" alt="VantaWolf Token Distribution" style="width:50%; max-width:500px; border-radius:12px; margin-top:20px;">
-
+<img src="images/vantawolf_token_allocation_updated.png" alt="VantaWolf Token Distribution" style="width:50%; max-width:500px; border-radius:12px; margin-top:15px;">
 <p>
 Liquidity Pool — 75%<br>
 Airdrops — 10%<br>
 Marketing — 10%<br>
 Team — 5%
 </p>
-
 <a href="https://solscan.io/token/JB6BLqZYCh531qV1ey4vXddC5wg5pwCBy48vkktiyR3L" 
    target="_blank" 
-   class="button">
+   class="glow-button">
    Verify on Solscan
 </a>
+</div>
 
+<!-- WALLET TRANSPARENCY -->
 <div class="card">
 <h2>Wallet Transparency</h2>
-
 <p><strong>Liquidity Pool Wallet</strong><br>
 6uCdJJdP7E9NKSAXD7PMtusjYK9odq4aSB5NgVpsmyai</p>
 
@@ -175,15 +162,17 @@ F6CruxPQNZMuTVe8kALHWNWjqP2mpm2Hu48pYXPy8ATb</p>
 <p>All allocations follow the VantaWolf tokenomics plan. Liquidity launch coming next.</p>
 </div>
 
+<!-- TOKEN STATUS -->
 <div class="card">
 <h2>Token Status</h2>
 <p>Liquidity pool launch in progress. Security upgrades underway. Preparing for public trading.</p>
 </div>
 
+<!-- JOIN COMMUNITY -->
 <div class="card">
 <h2>Join Community</h2>
 <p>Follow updates and announcements.</p>
-<a class="button" href="https://x.com/VantaWolf2026" target="_blank">Follow on X</a>
+<a class="glow-button" href="https://x.com/VantaWolf2026" target="_blank">Follow on X</a>
 </div>
 
 </div>
@@ -205,11 +194,33 @@ fetch('https://api.countapi.xyz/hit/vantawolf-github/visits')
   });
 </script>
 
-<!-- COUNTDOWN SCRIPT -->
+<!-- GIVEAWAY COUNTDOWN SCRIPT -->
 <script>
 function startCountdown() {
     const countDownDate = new Date("March 21, 2026 12:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
 
     const interval = setInterval(function() {
-        const now = new Date
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        if (distance < 0) {
+            clearInterval(interval);
+            countdownEl.innerHTML = "Giveaway ended! Distribution is live!";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownEl.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+    }, 1000);
+}
+
+document.addEventListener("DOMContentLoaded", startCountdown);
+</script>
+
+</body>
+</html>
