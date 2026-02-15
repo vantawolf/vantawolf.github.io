@@ -92,28 +92,19 @@ footer {
 <!-- SECTIONS -->
 <div class="section">
 
-<!-- 🎁 GIVEAWAY SECTION (ADDED) -->
+<!-- 🎁 GIVEAWAY SECTION -->
 <div class="card">
   <h2>🎁 VantaWolf Giveaway 🎁</h2>
-  <p>25 people will receive <strong>25,000 VWF</strong> each<br></p>
+  <p>25 people will receive <strong>25,000 VWF</strong> each</p>
 
   <h3>How to participate:</h3>
   <ul style="text-align:left; list-style:disc; margin-left:40px;">
     <li>Follow</li>
     <li>Like & repost</li>
-    <li>Drop your Solana wallet address</li>
+    <li>Drop your Solana wallet address in the X comment</li>
   </ul>
 
   <p>⏳ Giveaway ends / Distribution starts in: <strong><span id="countdown">Loading...</span></strong></p>
-
-  <label for="wallet" style="display:block; margin-top:20px; margin-bottom:5px;">Your Solana Wallet:</label>
-  <input type="text" id="wallet" placeholder="Paste your wallet address"
-         style="width:100%; padding:10px; border-radius:8px; border:none; font-size:16px;">
-
-  <button onclick="copyWallet()"
-          style="display:inline-block; padding:12px 24px; margin-top:10px; border-radius:12px; background:#00ffff; color:#000; font-weight:bold; border:none; cursor:pointer;">
-    Copy Wallet
-  </button>
 
   <a href="https://x.com/i/status/2022999781287879043" target="_blank"
      style="display:inline-block; padding:14px 28px; margin-top:20px; border-radius:12px; background:#ff00ff; color:#fff; font-weight:bold; text-decoration:none;">
@@ -193,15 +184,8 @@ fetch('https://api.countapi.xyz/hit/vantawolf-github/visits')
   });
 </script>
 
-<!-- GIVEAWAY SCRIPT -->
+<!-- COUNTDOWN SCRIPT -->
 <script>
-function copyWallet() {
-    const walletInput = document.getElementById("wallet");
-    walletInput.select();
-    document.execCommand("copy");
-    alert("Wallet copied! Paste it in your X comment.");
-}
-
 function startCountdown() {
     const countDownDate = new Date("March 21, 2026 12:00:00").getTime();
     const countdownEl = document.getElementById("countdown");
