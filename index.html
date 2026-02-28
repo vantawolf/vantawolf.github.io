@@ -152,6 +152,10 @@ footer {
 
   <p><strong>Ends: March 21</strong></p>
 
+  <!-- ⏳ Countdown -->
+  <h3>⏳ Time Remaining:</h3>
+  <p id="countdown" style="font-size:18px; font-weight:bold;"></p>
+
   <h3>How to qualify:</h3>
   <ul style="text-align:left; list-style:disc; margin-left:40px;">
     <li>Follow @VantaWolf2026 on X</li>
@@ -161,10 +165,37 @@ footer {
     <li>Drop your Solana wallet address in the X comments</li>
   </ul>
 
-  <p style="margin-top:15px;">
-    📌 Full details available in the pinned post on our X profile.
-  </p>
+  <!-- 🔗 Giveaway Button -->
+  <a href="https://x.com/i/status/2027843349206413717" target="_blank">
+    <button style="margin-top:15px; padding:10px 20px; font-size:16px; cursor:pointer;">
+      🔥 Enter Giveaway on X
+    </button>
+  </a>
 </div>
+
+<!-- 🕒 Countdown Script -->
+<script>
+  const endDate = new Date("March 21, 2026 23:59:59").getTime();
+
+  const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = endDate - now;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "Giveaway Ended";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+      days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  }, 1000);
+</script>
 
 <!-- ABOUT SECTION -->
 <div class="card">
